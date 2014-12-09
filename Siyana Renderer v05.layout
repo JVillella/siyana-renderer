@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="NVIDIA" />
+	<File name="src\BBox.h" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\BuildMesh.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1500" topLine="0" />
+	</File>
+	<File name="src\BuildMesh.h" open="0" top="0" tabpos="4">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\BuildScene.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\BuildScene.h" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\Camera.h" open="0" top="0" tabpos="6">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\DensityFunctions.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\DensityFunctions.h" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\GLUTUtilities.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\GLUTUtilities.h" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\IntersectionFunctions.h" open="0" top="0" tabpos="5">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\KdTree.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\KdTree.h" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\MCLookupTables.h" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\MarchingCubes.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\MarchingCubes.h" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\Matrix4x4.h" open="0" top="0" tabpos="0">
+		<Cursor position="1500" topLine="0" />
+	</File>
+	<File name="src\OpenCLUtilities.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\OpenCLUtilities.h" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\RenderKernel.cl" open="0" top="0" tabpos="3">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\Sampler.h" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\Texture.h" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\Utilities.h" open="0" top="0" tabpos="4">
+		<Cursor position="3174" topLine="66" />
+	</File>
+	<File name="src\floatn.h" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\intn.h" open="0" top="0" tabpos="0">
+		<Cursor position="1498" topLine="0" />
+	</File>
+	<File name="src\main.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="1498" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>
