@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C74E1881BAF800E00675B19 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1871BAF800E00675B19 /* OpenCL.framework */; };
+		2C74E18A1BAF805800675B19 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1891BAF805800675B19 /* GLUT.framework */; };
+		2C74E18C1BAF82A000675B19 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E18B1BAF82A000675B19 /* OpenGL.framework */; };
+		2C74E1A81BAF857F00675B19 /* BuildMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E18F1BAF857F00675B19 /* BuildMesh.cpp */; settings = {ASSET_TAGS = (); }; };
+		2C74E1A91BAF857F00675B19 /* BuildScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1911BAF857F00675B19 /* BuildScene.cpp */; settings = {ASSET_TAGS = (); }; };
+		2C74E1AA1BAF857F00675B19 /* DensityFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1941BAF857F00675B19 /* DensityFunctions.cpp */; settings = {ASSET_TAGS = (); }; };
+		2C74E1AB1BAF857F00675B19 /* GLUTUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1971BAF857F00675B19 /* GLUTUtilities.cpp */; settings = {ASSET_TAGS = (); }; };
+		2C74E1AC1BAF857F00675B19 /* KdTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E19B1BAF857F00675B19 /* KdTree.cpp */; settings = {ASSET_TAGS = (); }; };
+		2C74E1AD1BAF857F00675B19 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E19D1BAF857F00675B19 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
+		2C74E1AE1BAF857F00675B19 /* MarchingCubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E19E1BAF857F00675B19 /* MarchingCubes.cpp */; settings = {ASSET_TAGS = (); }; };
+		2C74E1AF1BAF857F00675B19 /* OpenCLUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1A21BAF857F00675B19 /* OpenCLUtilities.cpp */; settings = {ASSET_TAGS = (); }; };
+		2C74E1B01BAF857F00675B19 /* RenderKernel.cl in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1A41BAF857F00675B19 /* RenderKernel.cl */; settings = {ASSET_TAGS = (); }; };
+		2C74E1B21BAF859500675B19 /* libnoise.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1B11BAF859500675B19 /* libnoise.a */; };
+		2C74E1B51BAF86AF00675B19 /* rply.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1B31BAF86AF00675B19 /* rply.c */; settings = {ASSET_TAGS = (); }; };
+		2C74E1B71BAF882D00675B19 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1B61BAF882D00675B19 /* libSOIL.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2C74E15A1BAF7F1A00675B19 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2C74E15C1BAF7F1A00675B19 /* siyana-renderer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "siyana-renderer"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C74E1871BAF800E00675B19 /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
+		2C74E1891BAF805800675B19 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		2C74E18B1BAF82A000675B19 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		2C74E18E1BAF857F00675B19 /* BBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBox.h; path = src/BBox.h; sourceTree = "<group>"; };
+		2C74E18F1BAF857F00675B19 /* BuildMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BuildMesh.cpp; path = src/BuildMesh.cpp; sourceTree = "<group>"; };
+		2C74E1901BAF857F00675B19 /* BuildMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuildMesh.h; path = src/BuildMesh.h; sourceTree = "<group>"; };
+		2C74E1911BAF857F00675B19 /* BuildScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BuildScene.cpp; path = src/BuildScene.cpp; sourceTree = "<group>"; };
+		2C74E1921BAF857F00675B19 /* BuildScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuildScene.h; path = src/BuildScene.h; sourceTree = "<group>"; };
+		2C74E1931BAF857F00675B19 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = src/Camera.h; sourceTree = "<group>"; };
+		2C74E1941BAF857F00675B19 /* DensityFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DensityFunctions.cpp; path = src/DensityFunctions.cpp; sourceTree = "<group>"; };
+		2C74E1951BAF857F00675B19 /* DensityFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DensityFunctions.h; path = src/DensityFunctions.h; sourceTree = "<group>"; };
+		2C74E1961BAF857F00675B19 /* floatn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = floatn.h; path = src/floatn.h; sourceTree = "<group>"; };
+		2C74E1971BAF857F00675B19 /* GLUTUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLUTUtilities.cpp; path = src/GLUTUtilities.cpp; sourceTree = "<group>"; };
+		2C74E1981BAF857F00675B19 /* GLUTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLUTUtilities.h; path = src/GLUTUtilities.h; sourceTree = "<group>"; };
+		2C74E1991BAF857F00675B19 /* IntersectionFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntersectionFunctions.h; path = src/IntersectionFunctions.h; sourceTree = "<group>"; };
+		2C74E19A1BAF857F00675B19 /* intn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = intn.h; path = src/intn.h; sourceTree = "<group>"; };
+		2C74E19B1BAF857F00675B19 /* KdTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KdTree.cpp; path = src/KdTree.cpp; sourceTree = "<group>"; };
+		2C74E19C1BAF857F00675B19 /* KdTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KdTree.h; path = src/KdTree.h; sourceTree = "<group>"; };
+		2C74E19D1BAF857F00675B19 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
+		2C74E19E1BAF857F00675B19 /* MarchingCubes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MarchingCubes.cpp; path = src/MarchingCubes.cpp; sourceTree = "<group>"; };
+		2C74E19F1BAF857F00675B19 /* MarchingCubes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarchingCubes.h; path = src/MarchingCubes.h; sourceTree = "<group>"; };
+		2C74E1A01BAF857F00675B19 /* Matrix4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Matrix4x4.h; path = src/Matrix4x4.h; sourceTree = "<group>"; };
+		2C74E1A11BAF857F00675B19 /* MCLookupTables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCLookupTables.h; path = src/MCLookupTables.h; sourceTree = "<group>"; };
+		2C74E1A21BAF857F00675B19 /* OpenCLUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OpenCLUtilities.cpp; path = src/OpenCLUtilities.cpp; sourceTree = "<group>"; };
+		2C74E1A31BAF857F00675B19 /* OpenCLUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenCLUtilities.h; path = src/OpenCLUtilities.h; sourceTree = "<group>"; };
+		2C74E1A41BAF857F00675B19 /* RenderKernel.cl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.opencl; name = RenderKernel.cl; path = src/RenderKernel.cl; sourceTree = "<group>"; };
+		2C74E1A51BAF857F00675B19 /* Sampler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sampler.h; path = src/Sampler.h; sourceTree = "<group>"; };
+		2C74E1A61BAF857F00675B19 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Texture.h; path = src/Texture.h; sourceTree = "<group>"; };
+		2C74E1A71BAF857F00675B19 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utilities.h; path = src/Utilities.h; sourceTree = "<group>"; };
+		2C74E1B11BAF859500675B19 /* libnoise.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnoise.a; path = "siyana-renderer/lib/libnoise.a"; sourceTree = "<group>"; };
+		2C74E1B31BAF86AF00675B19 /* rply.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rply.c; path = src/rply.c; sourceTree = "<group>"; };
+		2C74E1B41BAF86AF00675B19 /* rply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rply.h; path = src/rply.h; sourceTree = "<group>"; };
+		2C74E1B61BAF882D00675B19 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = "siyana-renderer/lib/libSOIL.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C74E1591BAF7F1A00675B19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C74E1B71BAF882D00675B19 /* libSOIL.a in Frameworks */,
+				2C74E1B21BAF859500675B19 /* libnoise.a in Frameworks */,
+				2C74E18C1BAF82A000675B19 /* OpenGL.framework in Frameworks */,
+				2C74E18A1BAF805800675B19 /* GLUT.framework in Frameworks */,
+				2C74E1881BAF800E00675B19 /* OpenCL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C74E1531BAF7F1A00675B19 = {
+			isa = PBXGroup;
+			children = (
+				2C74E15E1BAF7F1A00675B19 /* siyana-renderer */,
+				2C74E15D1BAF7F1A00675B19 /* Products */,
+				2C74E18D1BAF82A700675B19 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2C74E15D1BAF7F1A00675B19 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C74E15C1BAF7F1A00675B19 /* siyana-renderer */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C74E15E1BAF7F1A00675B19 /* siyana-renderer */ = {
+			isa = PBXGroup;
+			children = (
+				2C74E1B31BAF86AF00675B19 /* rply.c */,
+				2C74E1B41BAF86AF00675B19 /* rply.h */,
+				2C74E18E1BAF857F00675B19 /* BBox.h */,
+				2C74E18F1BAF857F00675B19 /* BuildMesh.cpp */,
+				2C74E1901BAF857F00675B19 /* BuildMesh.h */,
+				2C74E1911BAF857F00675B19 /* BuildScene.cpp */,
+				2C74E1921BAF857F00675B19 /* BuildScene.h */,
+				2C74E1931BAF857F00675B19 /* Camera.h */,
+				2C74E1941BAF857F00675B19 /* DensityFunctions.cpp */,
+				2C74E1951BAF857F00675B19 /* DensityFunctions.h */,
+				2C74E1961BAF857F00675B19 /* floatn.h */,
+				2C74E1971BAF857F00675B19 /* GLUTUtilities.cpp */,
+				2C74E1981BAF857F00675B19 /* GLUTUtilities.h */,
+				2C74E1991BAF857F00675B19 /* IntersectionFunctions.h */,
+				2C74E19A1BAF857F00675B19 /* intn.h */,
+				2C74E19B1BAF857F00675B19 /* KdTree.cpp */,
+				2C74E19C1BAF857F00675B19 /* KdTree.h */,
+				2C74E19D1BAF857F00675B19 /* main.cpp */,
+				2C74E19E1BAF857F00675B19 /* MarchingCubes.cpp */,
+				2C74E19F1BAF857F00675B19 /* MarchingCubes.h */,
+				2C74E1A01BAF857F00675B19 /* Matrix4x4.h */,
+				2C74E1A11BAF857F00675B19 /* MCLookupTables.h */,
+				2C74E1A21BAF857F00675B19 /* OpenCLUtilities.cpp */,
+				2C74E1A31BAF857F00675B19 /* OpenCLUtilities.h */,
+				2C74E1A41BAF857F00675B19 /* RenderKernel.cl */,
+				2C74E1A51BAF857F00675B19 /* Sampler.h */,
+				2C74E1A61BAF857F00675B19 /* Texture.h */,
+				2C74E1A71BAF857F00675B19 /* Utilities.h */,
+			);
+			path = "siyana-renderer";
+			sourceTree = "<group>";
+		};
+		2C74E18D1BAF82A700675B19 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C74E1B61BAF882D00675B19 /* libSOIL.a */,
+				2C74E1B11BAF859500675B19 /* libnoise.a */,
+				2C74E18B1BAF82A000675B19 /* OpenGL.framework */,
+				2C74E1891BAF805800675B19 /* GLUT.framework */,
+				2C74E1871BAF800E00675B19 /* OpenCL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C74E15B1BAF7F1A00675B19 /* siyana-renderer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C74E1631BAF7F1A00675B19 /* Build configuration list for PBXNativeTarget "siyana-renderer" */;
+			buildPhases = (
+				2C74E1581BAF7F1A00675B19 /* Sources */,
+				2C74E1591BAF7F1A00675B19 /* Frameworks */,
+				2C74E15A1BAF7F1A00675B19 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "siyana-renderer";
+			productName = "siyana-renderer";
+			productReference = 2C74E15C1BAF7F1A00675B19 /* siyana-renderer */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C74E1541BAF7F1A00675B19 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Julian Villella";
+				TargetAttributes = {
+					2C74E15B1BAF7F1A00675B19 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = 2C74E1571BAF7F1A00675B19 /* Build configuration list for PBXProject "siyana-renderer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2C74E1531BAF7F1A00675B19;
+			productRefGroup = 2C74E15D1BAF7F1A00675B19 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C74E15B1BAF7F1A00675B19 /* siyana-renderer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C74E1581BAF7F1A00675B19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C74E1B51BAF86AF00675B19 /* rply.c in Sources */,
+				2C74E1A81BAF857F00675B19 /* BuildMesh.cpp in Sources */,
+				2C74E1AF1BAF857F00675B19 /* OpenCLUtilities.cpp in Sources */,
+				2C74E1A91BAF857F00675B19 /* BuildScene.cpp in Sources */,
+				2C74E1AD1BAF857F00675B19 /* main.cpp in Sources */,
+				2C74E1AC1BAF857F00675B19 /* KdTree.cpp in Sources */,
+				2C74E1AB1BAF857F00675B19 /* GLUTUtilities.cpp in Sources */,
+				2C74E1B01BAF857F00675B19 /* RenderKernel.cl in Sources */,
+				2C74E1AE1BAF857F00675B19 /* MarchingCubes.cpp in Sources */,
+				2C74E1AA1BAF857F00675B19 /* DensityFunctions.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2C74E1611BAF7F1A00675B19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2C74E1621BAF7F1A00675B19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2C74E1641BAF7F1A00675B19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INSTALL_PATH = "$(PROJECT_DIR)/siyana-renderer/bin";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/siyana-renderer/lib",
+					/usr/local/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/siyana-renderer/include /usr/local/include";
+			};
+			name = Debug;
+		};
+		2C74E1651BAF7F1A00675B19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INSTALL_PATH = "$(PROJECT_DIR)/siyana-renderer/bin";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/siyana-renderer/lib",
+					/usr/local/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/siyana-renderer/include /usr/local/include";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C74E1571BAF7F1A00675B19 /* Build configuration list for PBXProject "siyana-renderer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C74E1611BAF7F1A00675B19 /* Debug */,
+				2C74E1621BAF7F1A00675B19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C74E1631BAF7F1A00675B19 /* Build configuration list for PBXNativeTarget "siyana-renderer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C74E1641BAF7F1A00675B19 /* Debug */,
+				2C74E1651BAF7F1A00675B19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2C74E1541BAF7F1A00675B19 /* Project object */;
+}
