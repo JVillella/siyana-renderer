@@ -25,7 +25,7 @@
     #include "GLUTUtilities.h"
     #include "BuildScene.h"
     #include <math.h>
-    #include <boost/thread/thread.hpp>
+    #include "boost/thread/thread.hpp"
 #undef __OPENCL_HOST__
 
 #include <iostream>

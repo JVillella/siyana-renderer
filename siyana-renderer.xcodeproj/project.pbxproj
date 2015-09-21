@@ -22,6 +22,8 @@
 		2C74E1B21BAF859500675B19 /* libnoise.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1B11BAF859500675B19 /* libnoise.a */; };
 		2C74E1B51BAF86AF00675B19 /* rply.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1B31BAF86AF00675B19 /* rply.c */; settings = {ASSET_TAGS = (); }; };
 		2C74E1B71BAF882D00675B19 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1B61BAF882D00675B19 /* libSOIL.a */; };
+		2C74E1B91BAF8E4500675B19 /* libboost_thread-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1B81BAF8E4500675B19 /* libboost_thread-mt.a */; };
+		2C74E1BB1BAF8E6500675B19 /* libboost_system-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1BA1BAF8E6500675B19 /* libboost_system-mt.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +73,8 @@
 		2C74E1B31BAF86AF00675B19 /* rply.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rply.c; path = src/rply.c; sourceTree = "<group>"; };
 		2C74E1B41BAF86AF00675B19 /* rply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rply.h; path = src/rply.h; sourceTree = "<group>"; };
 		2C74E1B61BAF882D00675B19 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = "siyana-renderer/lib/libSOIL.a"; sourceTree = "<group>"; };
+		2C74E1B81BAF8E4500675B19 /* libboost_thread-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_thread-mt.a"; path = "../../../../../usr/local/lib/libboost_thread-mt.a"; sourceTree = "<group>"; };
+		2C74E1BA1BAF8E6500675B19 /* libboost_system-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_system-mt.a"; path = "../../../../../usr/local/lib/libboost_system-mt.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C74E1BB1BAF8E6500675B19 /* libboost_system-mt.a in Frameworks */,
+				2C74E1B91BAF8E4500675B19 /* libboost_thread-mt.a in Frameworks */,
 				2C74E1B71BAF882D00675B19 /* libSOIL.a in Frameworks */,
 				2C74E1B21BAF859500675B19 /* libnoise.a in Frameworks */,
 				2C74E18C1BAF82A000675B19 /* OpenGL.framework in Frameworks */,
@@ -144,6 +150,8 @@
 		2C74E18D1BAF82A700675B19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C74E1BA1BAF8E6500675B19 /* libboost_system-mt.a */,
+				2C74E1B81BAF8E4500675B19 /* libboost_thread-mt.a */,
 				2C74E1B61BAF882D00675B19 /* libSOIL.a */,
 				2C74E1B11BAF859500675B19 /* libnoise.a */,
 				2C74E18B1BAF82A000675B19 /* OpenGL.framework */,
@@ -305,6 +313,11 @@
 		2C74E1641BAF7F1A00675B19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/siyana-renderer/include",
+					/usr/local/include,
+				);
 				INSTALL_PATH = "$(PROJECT_DIR)/siyana-renderer/bin";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -312,13 +325,17 @@
 					/usr/local/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/siyana-renderer/include /usr/local/include";
 			};
 			name = Debug;
 		};
 		2C74E1651BAF7F1A00675B19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/siyana-renderer/include",
+					/usr/local/include,
+				);
 				INSTALL_PATH = "$(PROJECT_DIR)/siyana-renderer/bin";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -326,7 +343,6 @@
 					/usr/local/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/siyana-renderer/include /usr/local/include";
 			};
 			name = Release;
 		};
