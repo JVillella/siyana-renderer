@@ -175,65 +175,65 @@ void SetupScene() {
     CameraSetupOrthoBasis(origin, focal);
 
     //--------------------------------------Environment Light
-    SetEnvironmentTexture("../textures/environment/outside.jpg");
-    //SetEnvironmentTexture("../textures/environment/uffizi.jpg");
+    SetEnvironmentTexture("textures/environment/outside.jpg");
+    //SetEnvironmentTexture("textures/environment/uffizi.jpg");
     //SetEnvironmentTexture(float4(1,1,1,1));
 
     //--------------------------------------Set Terrain
     Mesh terrain;
     GenerateTerrain(&terrain, voxel_size, num_voxels);
     terrain.mat.emission = 0.f;
-    //SetMeshTexture(&terrain, "../textures/cracked_earth.jpg");
-    SetMeshTexture(&terrain, "../textures/grass.jpg");
+    //SetMeshTexture(&terrain, "textures/cracked_earth.jpg");
+    SetMeshTexture(&terrain, "textures/grass.jpg");
     AddTerrainMesh(terrain);
 
     //--------------------------------------Set Meshes
     Mesh door;
-    SetMesh(&door, "../meshes/tower/door.ply");
+    SetMesh(&door, "meshes/tower/door.ply");
     door.mat.emission = 0.f;
-    SetMeshTexture(&door, "../textures/tower/door.png");
+    SetMeshTexture(&door, "textures/tower/door.png");
     AddMesh(door);
 
     Mesh door_arch;
-    SetMesh(&door_arch, "../meshes/tower/door_arch.ply");
+    SetMesh(&door_arch, "meshes/tower/door_arch.ply");
     door_arch.mat.emission = 0.f;
-    SetMeshTexture(&door_arch, "../textures/tower/stone_wall.png");
+    SetMeshTexture(&door_arch, "textures/tower/stone_wall.png");
     AddMesh(door_arch);
 
     Mesh roof;
-    SetMesh(&roof, "../meshes/tower/roof.ply");
+    SetMesh(&roof, "meshes/tower/roof.ply");
     roof.mat.emission = 0.f;
-    SetMeshTexture(&roof, "../textures/tower/copper_roof.jpg");
+    SetMeshTexture(&roof, "textures/tower/copper_roof.jpg");
     AddMesh(roof);
 
     Mesh roof_tip;
-    SetMesh(&roof_tip, "../meshes/tower/roof_tip.ply");
+    SetMesh(&roof_tip, "meshes/tower/roof_tip.ply");
     roof_tip.mat.emission = 0.f;
-    SetMeshTexture(&roof_tip, "../textures/tower/roof_tip.png");
+    SetMeshTexture(&roof_tip, "textures/tower/roof_tip.png");
     AddMesh(roof_tip);
 
     Mesh stairs;
-    SetMesh(&stairs, "../meshes/tower/stairs.ply");
+    SetMesh(&stairs, "meshes/tower/stairs.ply");
     stairs.mat.emission = 0.f;
-    SetMeshTexture(&stairs, "../textures/tower/stone_wall.png");
+    SetMeshTexture(&stairs, "textures/tower/stone_wall.png");
     AddMesh(stairs);
 
     Mesh window_casing;
-    SetMesh(&window_casing, "../meshes/tower/window_casing.ply");
+    SetMesh(&window_casing, "meshes/tower/window_casing.ply");
     window_casing.mat.emission = 0.f;
-    SetMeshTexture(&window_casing, "../textures/tower/stone_wall.png");
+    SetMeshTexture(&window_casing, "textures/tower/stone_wall.png");
     AddMesh(window_casing);
 
     Mesh window;
-    SetMesh(&window, "../meshes/tower/window.ply");
+    SetMesh(&window, "meshes/tower/window.ply");
     window.mat.emission = 0.f;
-    SetMeshTexture(&window, "../textures/tower/window.jpg");
+    SetMeshTexture(&window, "textures/tower/window.jpg");
     AddMesh(window);
 
     Mesh tower;
-    SetMesh(&tower, "../meshes/tower/tower.ply");
+    SetMesh(&tower, "meshes/tower/tower.ply");
     tower.mat.emission = 0.f;
-    SetMeshTexture(&tower, "../textures/tower/stone_wall.png");
+    SetMeshTexture(&tower, "textures/tower/stone_wall.png");
     AddMesh(tower);
 
     //--------------------------------------Must call at this position

@@ -65,7 +65,6 @@ static void PressEnterToExit(void) {
 int main(int argc, char** argv) {
     atexit(PressEnterToExit); //keeps cmd open
 
-    chdir("./bin/");
     char str[1000];
     getcwd(str, 1000);
     cout<<"Current working directory: "<<endl;

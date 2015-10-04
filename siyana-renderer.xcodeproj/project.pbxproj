@@ -25,6 +25,8 @@
 		2C74E1BB1BAF8E6500675B19 /* libboost_system-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1BA1BAF8E6500675B19 /* libboost_system-mt.a */; };
 		2CB1B7501BC1A34400A1D0F3 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1B61BAF882D00675B19 /* libSOIL.a */; };
 		2CB1B7521BC1A40B00A1D0F3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB1B7511BC1A40B00A1D0F3 /* CoreFoundation.framework */; };
+		2CB1B7551BC1A9CE00A1D0F3 /* textures in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2CB1B7541BC1A9CE00A1D0F3 /* textures */; };
+		2CB1B7571BC1A9E000A1D0F3 /* meshes in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2CB1B7561BC1A9E000A1D0F3 /* meshes */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +38,17 @@
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		2CB1B7531BC1A99100A1D0F3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				2CB1B7571BC1A9E000A1D0F3 /* meshes in CopyFiles */,
+				2CB1B7551BC1A9CE00A1D0F3 /* textures in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -77,6 +90,8 @@
 		2C74E1B81BAF8E4500675B19 /* libboost_thread-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_thread-mt.a"; path = "../../../../../usr/local/lib/libboost_thread-mt.a"; sourceTree = "<group>"; };
 		2C74E1BA1BAF8E6500675B19 /* libboost_system-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_system-mt.a"; path = "../../../../../usr/local/lib/libboost_system-mt.a"; sourceTree = "<group>"; };
 		2CB1B7511BC1A40B00A1D0F3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		2CB1B7541BC1A9CE00A1D0F3 /* textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = textures; sourceTree = "<group>"; };
+		2CB1B7561BC1A9E000A1D0F3 /* meshes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = meshes; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +116,8 @@
 		2C74E1531BAF7F1A00675B19 = {
 			isa = PBXGroup;
 			children = (
+				2CB1B7561BC1A9E000A1D0F3 /* meshes */,
+				2CB1B7541BC1A9CE00A1D0F3 /* textures */,
 				2C74E15E1BAF7F1A00675B19 /* siyana-renderer */,
 				2C74E15D1BAF7F1A00675B19 /* Products */,
 				2C74E18D1BAF82A700675B19 /* Frameworks */,
@@ -175,6 +192,7 @@
 				2C74E1581BAF7F1A00675B19 /* Sources */,
 				2C74E1591BAF7F1A00675B19 /* Frameworks */,
 				2C74E15A1BAF7F1A00675B19 /* CopyFiles */,
+				2CB1B7531BC1A99100A1D0F3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
