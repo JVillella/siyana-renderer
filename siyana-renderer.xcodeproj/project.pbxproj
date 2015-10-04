@@ -21,9 +21,10 @@
 		2C74E1B01BAF857F00675B19 /* RenderKernel.cl in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1A41BAF857F00675B19 /* RenderKernel.cl */; settings = {ASSET_TAGS = (); }; };
 		2C74E1B21BAF859500675B19 /* libnoise.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1B11BAF859500675B19 /* libnoise.a */; };
 		2C74E1B51BAF86AF00675B19 /* rply.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1B31BAF86AF00675B19 /* rply.c */; settings = {ASSET_TAGS = (); }; };
-		2C74E1B71BAF882D00675B19 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1B61BAF882D00675B19 /* libSOIL.a */; };
 		2C74E1B91BAF8E4500675B19 /* libboost_thread-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1B81BAF8E4500675B19 /* libboost_thread-mt.a */; };
 		2C74E1BB1BAF8E6500675B19 /* libboost_system-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1BA1BAF8E6500675B19 /* libboost_system-mt.a */; };
+		2CB1B7501BC1A34400A1D0F3 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1B61BAF882D00675B19 /* libSOIL.a */; };
+		2CB1B7521BC1A40B00A1D0F3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB1B7511BC1A40B00A1D0F3 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,6 +76,7 @@
 		2C74E1B61BAF882D00675B19 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = "siyana-renderer/lib/libSOIL.a"; sourceTree = "<group>"; };
 		2C74E1B81BAF8E4500675B19 /* libboost_thread-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_thread-mt.a"; path = "../../../../../usr/local/lib/libboost_thread-mt.a"; sourceTree = "<group>"; };
 		2C74E1BA1BAF8E6500675B19 /* libboost_system-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_system-mt.a"; path = "../../../../../usr/local/lib/libboost_system-mt.a"; sourceTree = "<group>"; };
+		2CB1B7511BC1A40B00A1D0F3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +84,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C74E1BB1BAF8E6500675B19 /* libboost_system-mt.a in Frameworks */,
-				2C74E1B91BAF8E4500675B19 /* libboost_thread-mt.a in Frameworks */,
-				2C74E1B71BAF882D00675B19 /* libSOIL.a in Frameworks */,
-				2C74E1B21BAF859500675B19 /* libnoise.a in Frameworks */,
+				2CB1B7521BC1A40B00A1D0F3 /* CoreFoundation.framework in Frameworks */,
 				2C74E18C1BAF82A000675B19 /* OpenGL.framework in Frameworks */,
 				2C74E18A1BAF805800675B19 /* GLUT.framework in Frameworks */,
 				2C74E1881BAF800E00675B19 /* OpenCL.framework in Frameworks */,
+				2C74E1BB1BAF8E6500675B19 /* libboost_system-mt.a in Frameworks */,
+				2C74E1B91BAF8E4500675B19 /* libboost_thread-mt.a in Frameworks */,
+				2CB1B7501BC1A34400A1D0F3 /* libSOIL.a in Frameworks */,
+				2C74E1B21BAF859500675B19 /* libnoise.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +153,7 @@
 		2C74E18D1BAF82A700675B19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2CB1B7511BC1A40B00A1D0F3 /* CoreFoundation.framework */,
 				2C74E1BA1BAF8E6500675B19 /* libboost_system-mt.a */,
 				2C74E1B81BAF8E4500675B19 /* libboost_thread-mt.a */,
 				2C74E1B61BAF882D00675B19 /* libSOIL.a */,
@@ -365,6 +369,7 @@
 				2C74E1651BAF7F1A00675B19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
