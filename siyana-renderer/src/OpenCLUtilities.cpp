@@ -45,29 +45,29 @@ using namespace std;
 #define PLATFORM_INDEX GPU
 
 //defined elsewhere
-extern int width;
-extern int height;
+extern cl_int width;
+extern cl_int height;
 extern int spp;
 extern float* pixels;
 
 extern TriangleMesh* meshes;
-extern int num_meshes;
+extern cl_int num_meshes;
 
 extern Triangle* triangles;
-extern int total_scene_tris;
+extern cl_int total_scene_tris;
 
 extern float3* vertices;
 extern float3* normals;
 extern float2* uvs;
-extern int num_vertices;
+extern cl_int num_vertices;
 
 extern KdNode* kdnodes;
-extern int num_kdnodes;
+extern cl_int num_kdnodes;
 extern int* kdsorted_tri_indices;
-extern int num_kdsorted_tri_indices;
+extern cl_int num_kdsorted_tri_indices;
 
 extern unsigned char* texture_data;
-extern int num_texture_bytes;
+extern cl_int num_texture_bytes;
 
 extern Texture environment_tex;
 extern BBox scene_bbox;
@@ -363,105 +363,28 @@ void OpenCLCleanUp(void) {
 static void SetKernelArguments(void) {
 	printf("OpenCL: Setting kernel args\n");
     cl_int error = 0;
-
-    error = clSetKernelArg(kernel, 0, sizeof(cl_mem), (void*)&mem_meshes);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 0 kernel argument\n");
-        exit(error);
-    }
-    error = clSetKernelArg(kernel, 1, sizeof(int), (void*)&num_meshes);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 1 kernel argument\n");
-        exit(error);
-    }
-    error = clSetKernelArg(kernel, 2, sizeof(cl_mem), (void*)&mem_triangles);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 2 kernel argument\n");
-        exit(error);
-    }
-    error = clSetKernelArg(kernel, 3, sizeof(int), (void*)&total_scene_tris);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 3 kernel argument\n");
-        exit(error);
-    }
-    error = clSetKernelArg(kernel, 4, sizeof(cl_mem), (void*)&mem_vertices);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 4 kernel argument\n");
-        exit(error);
-    }
-    error = clSetKernelArg(kernel, 5, sizeof(cl_mem), (void*)&mem_normals);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 5 kernel argument\n");
-        exit(error);
-    }
-    error = clSetKernelArg(kernel, 6, sizeof(cl_mem), (void*)&mem_uvs);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 6 kernel argument\n");
-        exit(error);
-    }
-    error = clSetKernelArg(kernel, 7, sizeof(cl_mem), (void*)&mem_kdnodes);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 7 kernel argument\n");
-        exit(error);
-    }
-    error = clSetKernelArg(kernel, 8, sizeof(int), (void*)&num_kdnodes);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 8 kernel argument\n");
-        exit(error);
-    }
-    error = clSetKernelArg(kernel, 9, sizeof(cl_mem), (void*)&mem_kdsorted_tri_indices);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 9 kernel argument\n");
-        exit(error);
-    }
-    error = clSetKernelArg(kernel, 10, sizeof(int), (void*)&num_kdsorted_tri_indices);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 10 kernel argument\n");
-        exit(error);
-    }
+    error = clSetKernelArg(kernel, 0,  sizeof(cl_mem), (void*)&mem_meshes);
+    error = clSetKernelArg(kernel, 1,  sizeof(cl_int), (void*)&num_meshes);
+    error = clSetKernelArg(kernel, 2,  sizeof(cl_mem), (void*)&mem_triangles);
+    error = clSetKernelArg(kernel, 3,  sizeof(cl_int), (void*)&total_scene_tris);
+    error = clSetKernelArg(kernel, 4,  sizeof(cl_mem), (void*)&mem_vertices);
+    error = clSetKernelArg(kernel, 5,  sizeof(cl_mem), (void*)&mem_normals);
+    error = clSetKernelArg(kernel, 6,  sizeof(cl_mem), (void*)&mem_uvs);
+    error = clSetKernelArg(kernel, 7,  sizeof(cl_mem), (void*)&mem_kdnodes);
+    error = clSetKernelArg(kernel, 8,  sizeof(cl_int), (void*)&num_kdnodes);
+    error = clSetKernelArg(kernel, 9,  sizeof(cl_mem), (void*)&mem_kdsorted_tri_indices);
+    error = clSetKernelArg(kernel, 10, sizeof(cl_int), (void*)&num_kdsorted_tri_indices);
     error = clSetKernelArg(kernel, 11, sizeof(cl_mem), (void*)&mem_texture_data);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 11 kernel argument\n");
-        exit(error);
-    }
-    error = clSetKernelArg(kernel, 12, sizeof(int), (void*)&num_texture_bytes);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 12 kernel argument\n");
-        exit(error);
-    }
+    error = clSetKernelArg(kernel, 12, sizeof(cl_int), (void*)&num_texture_bytes);
     error = clSetKernelArg(kernel, 13, sizeof(cl_mem), (void*)&mem_environment_tex);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 13 kernel argument\n");
-        exit(error);
-    }
     error = clSetKernelArg(kernel, 14, sizeof(cl_mem), (void*)&mem_scene_bbox);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 14 kernel argument\n");
-        exit(error);
-    }
     error = clSetKernelArg(kernel, 15, sizeof(cl_mem), (void*)&mem_cam);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 15 kernel argument\n");
-        exit(error);
-    }
-    error = clSetKernelArg(kernel, 16, sizeof(int), (void*)&width);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 16 kernel argument\n");
-        exit(error);
-    }
-    error = clSetKernelArg(kernel, 17, sizeof(int), (void*)&height);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 17 kernel argument\n");
-        exit(error);
-    }
+    error = clSetKernelArg(kernel, 16, sizeof(cl_int), (void*)&width);
+    error = clSetKernelArg(kernel, 17, sizeof(cl_int), (void*)&height);
     error = clSetKernelArg(kernel, 18, sizeof(cl_mem), (void*)&mem_image);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 18 kernel argument\n");
-        exit(error);
-    }
     error = clSetKernelArg(kernel, 19, sizeof(cl_mem), (void*)&mem_rand_states);
     if(error != CL_SUCCESS) {
-        printf("OpenCL: Error setting 19 kernel argument\n");
+        printf("OpenCL: error setting kernel args inside SetKernelArguments\n");
         exit(error);
     }
 }
@@ -469,12 +392,12 @@ static void ExecuteKernel(void) {
 //	printf("OpenCL: Executing kernel\n");
     cl_int error = 0;
 
-    size_t num_local_work_items[2] = {16, 16};
-    size_t num_global_work_items[2] = {RoundUp(num_local_work_items[0], width),
-                                       RoundUp(num_local_work_items[1], height)};
+//    size_t num_local_work_items[2] = {16, 16};
+//    size_t num_global_work_items[2] = {RoundUp(num_local_work_items[0], width),
+//                                       RoundUp(num_local_work_items[1], height)};
 
-    error = clEnqueueNDRangeKernel(command_queue, kernel, 2, NULL,
-        num_global_work_items, num_local_work_items, 0, NULL, NULL);
+    size_t num_global_work_items[2] = {static_cast<size_t>(width), static_cast<size_t>(height)};
+    error = clEnqueueNDRangeKernel(command_queue, kernel, 2, NULL, num_global_work_items, NULL, 0, NULL, NULL);
     if(error != CL_SUCCESS) {
         printf("OpenCL: Error enqueuing kernel to command queue\n");
         exit(error);
@@ -541,22 +464,22 @@ void SetupOpenCL(void) {
     int num_modules = 4;
     size_t source_sizes[num_modules];
     char* source_strs[num_modules];
-    source_strs[0] = ReadSource("../src/RenderKernel.cl", &source_sizes[0], &error);
+    source_strs[0] = ReadSource("src/RenderKernel.cl", &source_sizes[0], &error);
     if (error != CL_SUCCESS) {
         printf("OpenCL: Error reading (RenderKernel.cl) kernel source into char array\n");
         exit(error);
     }
-    source_strs[1] = ReadSource("../src/Utilities.h", &source_sizes[1], &error);
+    source_strs[1] = ReadSource("src/Utilities.h", &source_sizes[1], &error);
     if (error != CL_SUCCESS) {
         printf("OpenCL: Error reading (Utilities.h) kernel source into char array\n");
         exit(error);
     }
-    source_strs[2] = ReadSource("../src/Sampler.h", &source_sizes[2], &error);
+    source_strs[2] = ReadSource("src/Sampler.h", &source_sizes[2], &error);
     if (error != CL_SUCCESS) {
         printf("OpenCL: Error reading (Sampler.h)) kernel source into char array\n");
         exit(error);
     }
-    source_strs[3] = ReadSource("../src/IntersectionFunctions.h", &source_sizes[3], &error);
+    source_strs[3] = ReadSource("src/IntersectionFunctions.h", &source_sizes[3], &error);
     if (error != CL_SUCCESS) {
         printf("OpenCL: Error reading (IntersectionFunctions.h) kernel source into char array\n");
         exit(error);
@@ -568,7 +491,7 @@ void SetupOpenCL(void) {
 		exit(error);
 	}
 	//build program
-	error = clBuildProgram(program, 1, &device, "-I../src", NULL, NULL);
+	error = clBuildProgram(program, 1, &device, "-I src", NULL, NULL);
 	PrintBuildLog();
 	if(error != CL_SUCCESS) {
 		printf("OpenCL: Error building program\n");
@@ -744,19 +667,19 @@ void OpenCLResetGeometry(void) {
     }
 
     //set kernel arguments
-    error = clSetKernelArg(kernel, 0, sizeof(cl_mem), (void*)&mem_meshes);
-    error = clSetKernelArg(kernel, 1, sizeof(int), (void*)&num_meshes);
-    error = clSetKernelArg(kernel, 2, sizeof(cl_mem), (void*)&mem_triangles);
-    error = clSetKernelArg(kernel, 3, sizeof(int), (void*)&total_scene_tris);
-    error = clSetKernelArg(kernel, 4, sizeof(cl_mem), (void*)&mem_vertices);
-    error = clSetKernelArg(kernel, 5, sizeof(cl_mem), (void*)&mem_normals);
-    error = clSetKernelArg(kernel, 6, sizeof(cl_mem), (void*)&mem_uvs);
-    error = clSetKernelArg(kernel, 7, sizeof(cl_mem), (void*)&mem_kdnodes);
-    error = clSetKernelArg(kernel, 8, sizeof(int), (void*)&num_kdnodes);
-    error = clSetKernelArg(kernel, 9, sizeof(cl_mem), (void*)&mem_kdsorted_tri_indices);
-    error = clSetKernelArg(kernel, 10, sizeof(int), (void*)&num_kdsorted_tri_indices);
+    error = clSetKernelArg(kernel, 0,  sizeof(cl_mem), (void*)&mem_meshes);
+    error = clSetKernelArg(kernel, 1,  sizeof(cl_int), (void*)&num_meshes);
+    error = clSetKernelArg(kernel, 2,  sizeof(cl_mem), (void*)&mem_triangles);
+    error = clSetKernelArg(kernel, 3,  sizeof(cl_int), (void*)&total_scene_tris);
+    error = clSetKernelArg(kernel, 4,  sizeof(cl_mem), (void*)&mem_vertices);
+    error = clSetKernelArg(kernel, 5,  sizeof(cl_mem), (void*)&mem_normals);
+    error = clSetKernelArg(kernel, 6,  sizeof(cl_mem), (void*)&mem_uvs);
+    error = clSetKernelArg(kernel, 7,  sizeof(cl_mem), (void*)&mem_kdnodes);
+    error = clSetKernelArg(kernel, 8,  sizeof(cl_int), (void*)&num_kdnodes);
+    error = clSetKernelArg(kernel, 9,  sizeof(cl_mem), (void*)&mem_kdsorted_tri_indices);
+    error = clSetKernelArg(kernel, 10, sizeof(cl_int), (void*)&num_kdsorted_tri_indices);
     error = clSetKernelArg(kernel, 11, sizeof(cl_mem), (void*)&mem_texture_data);
-    error = clSetKernelArg(kernel, 12, sizeof(int), (void*)&num_texture_bytes);
+    error = clSetKernelArg(kernel, 12, sizeof(cl_int), (void*)&num_texture_bytes);
     error = clSetKernelArg(kernel, 13, sizeof(cl_mem), (void*)&mem_environment_tex);
     error = clSetKernelArg(kernel, 14, sizeof(cl_mem), (void*)&mem_scene_bbox);
     error = clSetKernelArg(kernel, 15, sizeof(cl_mem), (void*)&mem_cam);
