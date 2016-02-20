@@ -30,9 +30,9 @@
 # Xcode
 ## Build generated
 build/
-DerivedData
+DerivedData/
 
-# Various settings
+## Various settings
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -41,12 +41,12 @@ DerivedData
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcuserdata
+xcuserdata/
 
-# Other
-*.xccheckout
+## Other
 *.moved-aside
-*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
 
 # Mac
 .DS_Store
