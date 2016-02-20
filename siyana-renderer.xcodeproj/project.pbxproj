@@ -7,20 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C3996611C783196001FA0B5 /* rply.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C3996601C783196001FA0B5 /* rply.c */; };
 		2C74E1881BAF800E00675B19 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1871BAF800E00675B19 /* OpenCL.framework */; };
 		2C74E18A1BAF805800675B19 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1891BAF805800675B19 /* GLUT.framework */; };
 		2C74E18C1BAF82A000675B19 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E18B1BAF82A000675B19 /* OpenGL.framework */; };
-		2C74E1A81BAF857F00675B19 /* BuildMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E18F1BAF857F00675B19 /* BuildMesh.cpp */; settings = {ASSET_TAGS = (); }; };
-		2C74E1A91BAF857F00675B19 /* BuildScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1911BAF857F00675B19 /* BuildScene.cpp */; settings = {ASSET_TAGS = (); }; };
-		2C74E1AA1BAF857F00675B19 /* DensityFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1941BAF857F00675B19 /* DensityFunctions.cpp */; settings = {ASSET_TAGS = (); }; };
-		2C74E1AB1BAF857F00675B19 /* GLUTUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1971BAF857F00675B19 /* GLUTUtilities.cpp */; settings = {ASSET_TAGS = (); }; };
-		2C74E1AC1BAF857F00675B19 /* KdTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E19B1BAF857F00675B19 /* KdTree.cpp */; settings = {ASSET_TAGS = (); }; };
-		2C74E1AD1BAF857F00675B19 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E19D1BAF857F00675B19 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
-		2C74E1AE1BAF857F00675B19 /* MarchingCubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E19E1BAF857F00675B19 /* MarchingCubes.cpp */; settings = {ASSET_TAGS = (); }; };
-		2C74E1AF1BAF857F00675B19 /* OpenCLUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1A21BAF857F00675B19 /* OpenCLUtilities.cpp */; settings = {ASSET_TAGS = (); }; };
-		2C74E1B01BAF857F00675B19 /* RenderKernel.cl in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1A41BAF857F00675B19 /* RenderKernel.cl */; settings = {ASSET_TAGS = (); }; };
+		2C74E1A81BAF857F00675B19 /* BuildMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E18F1BAF857F00675B19 /* BuildMesh.cpp */; };
+		2C74E1A91BAF857F00675B19 /* BuildScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1911BAF857F00675B19 /* BuildScene.cpp */; };
+		2C74E1AA1BAF857F00675B19 /* DensityFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1941BAF857F00675B19 /* DensityFunctions.cpp */; };
+		2C74E1AB1BAF857F00675B19 /* GLUTUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1971BAF857F00675B19 /* GLUTUtilities.cpp */; };
+		2C74E1AC1BAF857F00675B19 /* KdTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E19B1BAF857F00675B19 /* KdTree.cpp */; };
+		2C74E1AD1BAF857F00675B19 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E19D1BAF857F00675B19 /* main.cpp */; };
+		2C74E1AE1BAF857F00675B19 /* MarchingCubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E19E1BAF857F00675B19 /* MarchingCubes.cpp */; };
+		2C74E1AF1BAF857F00675B19 /* OpenCLUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1A21BAF857F00675B19 /* OpenCLUtilities.cpp */; };
 		2C74E1B21BAF859500675B19 /* libnoise.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1B11BAF859500675B19 /* libnoise.a */; };
-		2C74E1B51BAF86AF00675B19 /* rply.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1B31BAF86AF00675B19 /* rply.c */; settings = {ASSET_TAGS = (); }; };
 		2C74E1B91BAF8E4500675B19 /* libboost_thread-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1B81BAF8E4500675B19 /* libboost_thread-mt.a */; };
 		2C74E1BB1BAF8E6500675B19 /* libboost_system-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1BA1BAF8E6500675B19 /* libboost_system-mt.a */; };
 		2CB1B7501BC1A34400A1D0F3 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1B61BAF882D00675B19 /* libSOIL.a */; };
@@ -72,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2C3996601C783196001FA0B5 /* rply.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = rply.c; path = lib/RPly/rply.c; sourceTree = "<group>"; };
 		2C74E15C1BAF7F1A00675B19 /* siyana-renderer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "siyana-renderer"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C74E1871BAF800E00675B19 /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
 		2C74E1891BAF805800675B19 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
@@ -103,8 +103,6 @@
 		2C74E1A61BAF857F00675B19 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Texture.h; path = src/Texture.h; sourceTree = "<group>"; };
 		2C74E1A71BAF857F00675B19 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utilities.h; path = src/Utilities.h; sourceTree = "<group>"; };
 		2C74E1B11BAF859500675B19 /* libnoise.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnoise.a; path = "siyana-renderer/lib/libnoise.a"; sourceTree = "<group>"; };
-		2C74E1B31BAF86AF00675B19 /* rply.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rply.c; path = src/rply.c; sourceTree = "<group>"; };
-		2C74E1B41BAF86AF00675B19 /* rply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rply.h; path = src/rply.h; sourceTree = "<group>"; };
 		2C74E1B61BAF882D00675B19 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = "siyana-renderer/lib/libSOIL.a"; sourceTree = "<group>"; };
 		2C74E1B81BAF8E4500675B19 /* libboost_thread-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_thread-mt.a"; path = "../../../../../usr/local/lib/libboost_thread-mt.a"; sourceTree = "<group>"; };
 		2C74E1BA1BAF8E6500675B19 /* libboost_system-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_system-mt.a"; path = "../../../../../usr/local/lib/libboost_system-mt.a"; sourceTree = "<group>"; };
@@ -154,8 +152,6 @@
 		2C74E15E1BAF7F1A00675B19 /* siyana-renderer */ = {
 			isa = PBXGroup;
 			children = (
-				2C74E1B31BAF86AF00675B19 /* rply.c */,
-				2C74E1B41BAF86AF00675B19 /* rply.h */,
 				2C74E18E1BAF857F00675B19 /* BBox.h */,
 				2C74E18F1BAF857F00675B19 /* BuildMesh.cpp */,
 				2C74E1901BAF857F00675B19 /* BuildMesh.h */,
@@ -182,6 +178,7 @@
 				2C74E1A51BAF857F00675B19 /* Sampler.h */,
 				2C74E1A61BAF857F00675B19 /* Texture.h */,
 				2C74E1A71BAF857F00675B19 /* Utilities.h */,
+				2C3996601C783196001FA0B5 /* rply.c */,
 			);
 			path = "siyana-renderer";
 			sourceTree = "<group>";
@@ -259,14 +256,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C74E1B51BAF86AF00675B19 /* rply.c in Sources */,
+				2C3996611C783196001FA0B5 /* rply.c in Sources */,
 				2C74E1A81BAF857F00675B19 /* BuildMesh.cpp in Sources */,
 				2C74E1AF1BAF857F00675B19 /* OpenCLUtilities.cpp in Sources */,
 				2C74E1A91BAF857F00675B19 /* BuildScene.cpp in Sources */,
 				2C74E1AD1BAF857F00675B19 /* main.cpp in Sources */,
 				2C74E1AC1BAF857F00675B19 /* KdTree.cpp in Sources */,
 				2C74E1AB1BAF857F00675B19 /* GLUTUtilities.cpp in Sources */,
-				2C74E1B01BAF857F00675B19 /* RenderKernel.cl in Sources */,
 				2C74E1AE1BAF857F00675B19 /* MarchingCubes.cpp in Sources */,
 				2C74E1AA1BAF857F00675B19 /* DensityFunctions.cpp in Sources */,
 			);

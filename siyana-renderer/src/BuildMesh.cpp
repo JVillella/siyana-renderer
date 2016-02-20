@@ -1,4 +1,5 @@
 #include "BuildMesh.h"
+#include <RPly/rply.h>
 
 //------------------------------------------CallBacks
 static int FaceCallBack(p_ply_argument argument) {
@@ -78,7 +79,7 @@ static void ReadPlyFile(const char* filename, vector<int> *faces,
     vector<float3> *vertices, vector<float3> *normals, vector<float2>* uvs) {
     //Open file
     cout<<"Opening "<<filename<<endl;
-    p_ply ply = ply_open(filename, NULL);
+    p_ply ply = ply_open(filename, NULL, NULL, NULL);
     if(!ply) { //Not a ply file
         cout<<"Error Opening "<<filename<<" (Not a .ply file)"<<endl;
         exit(-1);

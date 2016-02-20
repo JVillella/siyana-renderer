@@ -8,7 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <math.h>
-#include "rply.h" //for parsing .ply files
+#include <RPly/rply.h>
 
 using namespace std;
 
