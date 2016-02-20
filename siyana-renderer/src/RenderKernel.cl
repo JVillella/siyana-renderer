@@ -13,7 +13,8 @@
     #include "IntersectionFunctions.h"
 #undef __OPENCL_DEVICE__
 
-#define ENV_MULT 3.f
+//#define ENV_MULT 3.f
+#define ENV_MULT 1.f
 
 #define M_1_255_F 0.00392156862f
 
@@ -31,11 +32,13 @@
 #define M_1_3_F 0.33333333333f
 
 //--- Feature Defines ---//
-#define DL_ONLY
-#define MAX_BOUNCES 1
-#define DEPTH_OF_FIELD_ON
-#define VIGNETTE_SCALE -0.25f //negative gives white edges
-#define AMBIENT_TERM 0.075f
+//#define DL_ONLY
+#define MAX_BOUNCES 2
+//#define DEPTH_OF_FIELD_ON
+//#define VIGNETTE_SCALE -0.25f //negative gives white edges
+#define VIGNETTE_SCALE 0 //negative gives white edges
+#define AMBIENT_TERM 0.0f
+//#define AMBIENT_TERM 0.075f
 //-----------------------//
 
 //TODO Add fog to pahtracer (only in ray tracer at the moment)

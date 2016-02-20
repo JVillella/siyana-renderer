@@ -11,8 +11,8 @@
 using namespace std;
 using namespace boost;
 
-int width = 645;
-int height = 365;
+int width = 800;
+int height = 800;
 int spp = 0;
 float* pixels = NULL;
 extern Camera cam;
@@ -34,8 +34,7 @@ namespace {
     bool request_scene_reset;
 
     //***For Movement***
-    const float WALK_SPEED = 0.3f;
-    //FOR DEBUGGING// const float WALK_SPEED = 3.f;
+    const float WALK_SPEED = 0.8;
 };
 
 //------------------------------------------Camera Data Movement
@@ -180,14 +179,14 @@ static void Mouse_cb(int x, int y) {
     }
 
     Rotate(angle_y);
-
+    cout<<"Origin: "<<cam.eye<<", Focal: "<<cam.focal<<endl;
     camera_moved = true;
     glutPostRedisplay(); //multiple calls generate only single
 }
 
 static void StartSceneUpdate() {
     geometry_updating = true; //start generation
-    UpdateScene();
+//    UpdateScene();
     geometry_updating = false; //done terrain generation
     request_scene_reset = true;
 }
@@ -314,8 +313,8 @@ static void SetGLUTCallbacks(void) {
     glutDisplayFunc(Display_cb);
     glutReshapeFunc(Resize_cb);
     glutKeyboardFunc(Keyboard_cb);
-    glutMotionFunc(Mouse_cb);
-    glutPassiveMotionFunc(Mouse_cb);
+//    glutMotionFunc(Mouse_cb);
+//    glutPassiveMotionFunc(Mouse_cb);
     glutIdleFunc(BackgroundProcess_cb);
 }
 void SetupGLUT(int argc, char** argv) {

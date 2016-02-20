@@ -143,77 +143,68 @@ static void MoveDataToGlobal() {
     mesh_vec.erase(mesh_vec.begin(), mesh_vec.end()); //should also erase contained vecs
 }
 
+// TODO: Eliminate the need to explicitly set the mesh emission value (it's in a C struct)
 void SetupScene() {
 //PrintTypeSizes();
     //--------------------------------------Camera
     //NOTE: dont change this...affects camera mouse movements and sensitivity
     //NOTE: Camera must be the first thing setup. e.x. terrain construction depends on it
-    float3 origin(0, 15, 0);
-    float3 focal(8, 15, 0);
+//    float3 origin(0, 15, 0);
+//    float3 focal(8, 15, 0);
+    
+    float3 origin(2.8, 2.5, -5);
+    float3 focal(2.8, 2.5, 2.3);
 
     CameraSetupOrthoBasis(origin, focal);
 
     //--------------------------------------Environment Light
-    SetEnvironmentTexture("textures/environment/outside.jpg");
-    //SetEnvironmentTexture("textures/environment/uffizi.jpg");
-    //SetEnvironmentTexture(float4(1,1,1,1));
+//    SetEnvironmentTexture("textures/environment/uffizi.jpg");
+//    SetEnvironmentTexture(float4(1, .9, .7, 1));
 
     //--------------------------------------Set Terrain
-    Mesh terrain;
-    GenerateTerrain(&terrain, voxel_size, num_voxels);
-    terrain.mat.emission = 0.f;
-    //SetMeshTexture(&terrain, "textures/cracked_earth.jpg");
-    SetMeshTexture(&terrain, "textures/grass.jpg");
-    AddTerrainMesh(terrain);
-
+//    Mesh terrain;
+//    GenerateTerrain(&terrain, voxel_size, num_voxels);
+//    terrain.mat.emission = 0.f;
+//    //SetMeshTexture(&terrain, "textures/cracked_earth.jpg");
+//    SetMeshTexture(&terrain, "textures/grass.jpg");
+//    AddTerrainMesh(terrain);
+//
     //--------------------------------------Set Meshes
-    Mesh door;
-    SetMesh(&door, "meshes/tower/door.ply");
-    door.mat.emission = 0.f;
-    SetMeshTexture(&door, "textures/tower/door.png");
-    AddMesh(door);
-
-    Mesh door_arch;
-    SetMesh(&door_arch, "meshes/tower/door_arch.ply");
-    door_arch.mat.emission = 0.f;
-    SetMeshTexture(&door_arch, "textures/tower/stone_wall.png");
-    AddMesh(door_arch);
-
-    Mesh roof;
-    SetMesh(&roof, "meshes/tower/roof.ply");
-    roof.mat.emission = 0.f;
-    SetMeshTexture(&roof, "textures/tower/copper_roof.jpg");
-    AddMesh(roof);
-
-    Mesh roof_tip;
-    SetMesh(&roof_tip, "meshes/tower/roof_tip.ply");
-    roof_tip.mat.emission = 0.f;
-    SetMeshTexture(&roof_tip, "textures/tower/roof_tip.png");
-    AddMesh(roof_tip);
-
-    Mesh stairs;
-    SetMesh(&stairs, "meshes/tower/stairs.ply");
-    stairs.mat.emission = 0.f;
-    SetMeshTexture(&stairs, "textures/tower/stone_wall.png");
-    AddMesh(stairs);
-
-    Mesh window_casing;
-    SetMesh(&window_casing, "meshes/tower/window_casing.ply");
-    window_casing.mat.emission = 0.f;
-    SetMeshTexture(&window_casing, "textures/tower/stone_wall.png");
-    AddMesh(window_casing);
-
-    Mesh window;
-    SetMesh(&window, "meshes/tower/window.ply");
-    window.mat.emission = 0.f;
-    SetMeshTexture(&window, "textures/tower/window.jpg");
-    AddMesh(window);
-
-    Mesh tower;
-    SetMesh(&tower, "meshes/tower/tower.ply");
-    tower.mat.emission = 0.f;
-    SetMeshTexture(&tower, "textures/tower/stone_wall.png");
-    AddMesh(tower);
+    Mesh roomMiddle;
+    SetMesh(&roomMiddle, "meshes/cornell-box/room-middle.ply");
+    roomMiddle.mat.emission = 0;
+    SetMeshTexture(&roomMiddle, float4(1, 1, 1, 1));
+    AddMesh(roomMiddle);
+    
+    Mesh roomLeft;
+    SetMesh(&roomLeft, "meshes/cornell-box/room-left.ply");
+    roomLeft.mat.emission = 0;
+    SetMeshTexture(&roomLeft, float4(1, 0, 0, 1));
+    AddMesh(roomLeft);
+    
+    Mesh roomRight;
+    SetMesh(&roomRight, "meshes/cornell-box/room-right.ply");
+    roomRight.mat.emission = 0;
+    SetMeshTexture(&roomRight, float4(0, 1, 0, 1));
+    AddMesh(roomRight);
+    
+    Mesh roomLight;
+    SetMesh(&roomLight, "meshes/cornell-box/room-light.ply");
+    roomLight.mat.emission = 1.0;
+    SetMeshTexture(&roomLight, float4(1, .9, .7, 1));
+    AddMesh(roomLight);
+    
+    Mesh boxBig;
+    SetMesh(&boxBig, "meshes/cornell-box/box-big.ply");
+    boxBig.mat.emission = 0;
+    SetMeshTexture(&boxBig, float4(1, 1, 1, 1));
+    AddMesh(boxBig);
+    
+    Mesh boxSmall;
+    SetMesh(&boxSmall, "meshes/cornell-box/box-small.ply");
+    boxSmall.mat.emission = 0;
+    SetMeshTexture(&boxSmall, float4(1, 1, 1, 1));
+    AddMesh(boxSmall);
 
     //--------------------------------------Must call at this position
     MoveDataToGlobal();

@@ -154,10 +154,10 @@ static void PrintBuildLog(void) {
 }
 
 //------------------------------------------Procedure Wrappers
+// TODO: Handle buffer sizes of zero. Currently just crashes
 static void AllocateOpenCLMem(void) {
 	printf("OpenCL: Allocating OpenCL memory\n");
 	cl_int error = 0;
-
 	mem_meshes = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(TriangleMesh) * num_meshes, NULL, &error);
     if(error != CL_SUCCESS) {
         printf("OpenCL: Error allocating mem_meshes memory\n");

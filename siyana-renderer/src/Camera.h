@@ -1,9 +1,12 @@
 #ifndef CAMERA_H_INCLUDED
 #define CAMERA_H_INCLUDED
 
+// TODO: Allow this to be adjusted
 #define CAMERA_VIEW_DIST 800.f
 
 extern Camera cam;
+
+// TODO: Allow us to adjust the ortho normal basis beyond the origin, and focal point
 
 inline
 void CameraSetupOrthoBasis(float3 origin, float3 focal_point) {
