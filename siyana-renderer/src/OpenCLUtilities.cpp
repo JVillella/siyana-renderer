@@ -23,9 +23,6 @@ using namespace std;
 #define CPU 1
 #define PLATFORM_INDEX GPU
 
-//defined elsewhere
-extern cl_int width;
-extern cl_int height;
 extern int spp;
 extern float* pixels;
 
@@ -51,6 +48,9 @@ extern cl_int num_texture_bytes;
 extern Texture environment_tex;
 extern BBox scene_bbox;
 extern Camera cam;
+
+static cl_int width;
+static cl_int height;
 
 //OpenCL static variables
 static cl_platform_id platform = NULL;
@@ -90,6 +90,7 @@ static size_t RoundUp(int groupSize, int globalSize) {
       return globalSize + groupSize - r;
     }
 }
+
 static char* ReadSource(const char* file_path, size_t* source_size, cl_int* error) {
     FILE* file = fopen(file_path, "r"); //open file to read
     if (!file) {
@@ -105,6 +106,7 @@ static char* ReadSource(const char* file_path, size_t* source_size, cl_int* erro
 	    return source_str;
 	}
 }
+
 static cl_bool DeviceImageSupport(void) {
 	cl_int error = 0;
     cl_bool image_support = CL_FALSE;
@@ -116,6 +118,7 @@ static cl_bool DeviceImageSupport(void) {
         return CL_TRUE;
     }
 }
+
 static float GetVersionNumber(int* error) {
     char* version_num = (char*)malloc(MAX_SOURCE_SIZE);
     *error = clGetDeviceInfo(device, CL_DRIVER_VERSION, MAX_SOURCE_SIZE, version_num, NULL);
@@ -382,7 +385,10 @@ static void ExecuteKernel(void) {
         exit(error);
     }
 }
-void SetupOpenCL(void) {
+void SetupOpenCL(int _width, int _height) {
+    width  = _width;
+    height = _height;
+    
 	printf("OpenCL: Setting up OpenCL\n");
     cl_int error = 0; //stores error
 

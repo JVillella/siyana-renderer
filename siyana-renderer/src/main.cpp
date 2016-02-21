@@ -1,16 +1,17 @@
 #define __OPENCL_HOST__
     #include "Utilities.h"
     #include "BBox.h"
+    #include "WindowClient.hpp"
 #undef __OPENCL_HOST__
 
 #include "OpenCLUtilities.h"
-#include "GLUTUtilities.h"
+//#include "GLUTUtilities.h"
 #include "BuildScene.h"
 
 #include <iostream>
-using namespace std;
-
 #include <string>
+
+using namespace std;
 
 //global vars
 TriangleMesh* meshes = NULL;
@@ -36,36 +37,36 @@ Texture environment_tex;
 BBox scene_bbox;
 Camera cam;
 
-static void PressEnterToExit(void) {
-    //cout<<endl<<"--- [Press enter to exit!] ---"<<endl;
-    //cin.get();
-}
-
-int main(int argc, char** argv) {
-    atexit(PressEnterToExit); //keeps cmd open
-
+void printCwd() {
     char str[1000];
     getcwd(str, 1000);
     cout<<"Current working directory: "<<endl;
     cout<<"\t"<<str<<endl;
+}
 
-    cout<<"Setting up scene..."<<endl;
-    SetupScene();
-    cout<<"Scene setup completed"<<endl;
-
-    //called after exit(int) called last function is first to be called
-    atexit(GLUTCleanUp);
+int main(int argc, char** argv) {
+    // Called after exit(int). Last function is the first to be called
+    //    atexit(GLUTCleanUp);
     atexit(OpenCLCleanUp);
     atexit(CleanScene);
-
-    //setup
-    cout<<"Setting up GLUT"<<endl;
-    SetupGLUT(argc, argv);
+    
+    printCwd();
+    
+    cout<<"Setting up scene"<<endl;
+    SetupScene();
+    cout<<"Scene setup complete"<<endl;
+    
+    cout<<"Setting up GUI"<<endl;
+    int width, height;
+    GLFWwindow* window = setupWindow(&width, &height);
+    cout<<"GUI setup complete"<<endl;
+    
     cout<<"Setting up OpenCL"<<endl;
-    SetupOpenCL();
+    SetupOpenCL(width, height);
+    cout<<"OpenCL setup complete"<<endl;
 
-    //enter main event loop
-    glutMainLoop();
-
+    cout<<"Starting main event loop"<<endl;
+    startGui(window);
+    
     return 0;
 }

@@ -8,7 +8,7 @@
 #endif
 
 //------------------------------------------Procedure Wrappers
-void SetupOpenCL(void);
+void SetupOpenCL(int _width, int _height);
 void OpenCLCleanUp(void);
 void OpenCLRender(void);
 void OpenCLFullReset(void);

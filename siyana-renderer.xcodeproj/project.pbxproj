@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2C3996611C783196001FA0B5 /* rply.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C3996601C783196001FA0B5 /* rply.c */; };
 		2C74E1881BAF800E00675B19 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1871BAF800E00675B19 /* OpenCL.framework */; };
-		2C74E18A1BAF805800675B19 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E1891BAF805800675B19 /* GLUT.framework */; };
 		2C74E18C1BAF82A000675B19 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C74E18B1BAF82A000675B19 /* OpenGL.framework */; };
 		2C74E1A81BAF857F00675B19 /* BuildMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E18F1BAF857F00675B19 /* BuildMesh.cpp */; };
 		2C74E1A91BAF857F00675B19 /* BuildScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1911BAF857F00675B19 /* BuildScene.cpp */; };
@@ -29,6 +28,11 @@
 		2CB1B78E1BC1EF9300A1D0F3 /* Utilities.h in Copy Files For OpenCL */ = {isa = PBXBuildFile; fileRef = 2C74E1A71BAF857F00675B19 /* Utilities.h */; };
 		2CB1B7DA1BC1F30300A1D0F3 /* meshes in Copy Files For Assets */ = {isa = PBXBuildFile; fileRef = 2CB1B7D81BC1F30300A1D0F3 /* meshes */; };
 		2CB1B7DB1BC1F30300A1D0F3 /* textures in Copy Files For Assets */ = {isa = PBXBuildFile; fileRef = 2CB1B7D91BC1F30300A1D0F3 /* textures */; };
+		2CFB94CC1C790DA400583353 /* WindowClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CFB94CA1C790DA400583353 /* WindowClient.cpp */; };
+		2CFB94D41C796BD200583353 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFB94D31C796BD200583353 /* Cocoa.framework */; };
+		2CFB94D61C796BEB00583353 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFB94D51C796BEB00583353 /* IOKit.framework */; };
+		2CFB94D71C796D4F00583353 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFB94CF1C796AA100583353 /* libglfw3.a */; };
+		2CFB94DC1C796EDE00583353 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFB94DB1C796EDE00583353 /* CoreVideo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,8 +110,16 @@
 		2CB1B7511BC1A40B00A1D0F3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		2CB1B7D81BC1F30300A1D0F3 /* meshes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = meshes; sourceTree = "<group>"; };
 		2CB1B7D91BC1F30300A1D0F3 /* textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = textures; sourceTree = "<group>"; };
+		2CFB94CA1C790DA400583353 /* WindowClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WindowClient.cpp; path = src/WindowClient.cpp; sourceTree = "<group>"; };
+		2CFB94CB1C790DA400583353 /* WindowClient.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = WindowClient.hpp; path = src/WindowClient.hpp; sourceTree = "<group>"; };
+		2CFB94CE1C792BCB00583353 /* Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Version.h; path = src/Version.h; sourceTree = "<group>"; };
+		2CFB94CF1C796AA100583353 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = "siyana-renderer/lib/libglfw3.a"; sourceTree = "<group>"; };
+		2CFB94D11C796B4A00583353 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../usr/local/lib/libglfw3.a; sourceTree = "<group>"; };
+		2CFB94D31C796BD200583353 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		2CFB94D51C796BEB00583353 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		2CFB94D81C796DB600583353 /* _GLUTUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = _GLUTUtilities.cpp; path = src/_GLUTUtilities.cpp; sourceTree = "<group>"; };
 		2CFB94D91C796DB600583353 /* _GLUTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _GLUTUtilities.h; path = src/_GLUTUtilities.h; sourceTree = "<group>"; };
+		2CFB94DB1C796EDE00583353 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +130,10 @@
 				2CB1B7521BC1A40B00A1D0F3 /* CoreFoundation.framework in Frameworks */,
 				2C74E18C1BAF82A000675B19 /* OpenGL.framework in Frameworks */,
 				2C74E1881BAF800E00675B19 /* OpenCL.framework in Frameworks */,
+				2CFB94D41C796BD200583353 /* Cocoa.framework in Frameworks */,
+				2CFB94D61C796BEB00583353 /* IOKit.framework in Frameworks */,
+				2CFB94DC1C796EDE00583353 /* CoreVideo.framework in Frameworks */,
+				2CFB94D71C796D4F00583353 /* libglfw3.a in Frameworks */,
 				2C74E1BB1BAF8E6500675B19 /* libboost_system-mt.a in Frameworks */,
 				2C74E1B91BAF8E4500675B19 /* libboost_thread-mt.a in Frameworks */,
 				2CB1B7501BC1A34400A1D0F3 /* libSOIL.a in Frameworks */,
@@ -152,6 +168,7 @@
 			children = (
 				2CFB94D81C796DB600583353 /* _GLUTUtilities.cpp */,
 				2CFB94D91C796DB600583353 /* _GLUTUtilities.h */,
+				2CFB94CE1C792BCB00583353 /* Version.h */,
 				2C74E18E1BAF857F00675B19 /* BBox.h */,
 				2C74E18F1BAF857F00675B19 /* BuildMesh.cpp */,
 				2C74E1901BAF857F00675B19 /* BuildMesh.h */,
@@ -177,6 +194,8 @@
 				2C74E1A61BAF857F00675B19 /* Texture.h */,
 				2C74E1A71BAF857F00675B19 /* Utilities.h */,
 				2C3996601C783196001FA0B5 /* rply.c */,
+				2CFB94CA1C790DA400583353 /* WindowClient.cpp */,
+				2CFB94CB1C790DA400583353 /* WindowClient.hpp */,
 			);
 			path = "siyana-renderer";
 			sourceTree = "<group>";
@@ -184,6 +203,11 @@
 		2C74E18D1BAF82A700675B19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2CFB94DB1C796EDE00583353 /* CoreVideo.framework */,
+				2CFB94D51C796BEB00583353 /* IOKit.framework */,
+				2CFB94D31C796BD200583353 /* Cocoa.framework */,
+				2CFB94D11C796B4A00583353 /* libglfw3.a */,
+				2CFB94CF1C796AA100583353 /* libglfw3.a */,
 				2CB1B7511BC1A40B00A1D0F3 /* CoreFoundation.framework */,
 				2C74E1BA1BAF8E6500675B19 /* libboost_system-mt.a */,
 				2C74E1B81BAF8E4500675B19 /* libboost_thread-mt.a */,
@@ -256,6 +280,7 @@
 			files = (
 				2C3996611C783196001FA0B5 /* rply.c in Sources */,
 				2C74E1A81BAF857F00675B19 /* BuildMesh.cpp in Sources */,
+				2CFB94CC1C790DA400583353 /* WindowClient.cpp in Sources */,
 				2C74E1AF1BAF857F00675B19 /* OpenCLUtilities.cpp in Sources */,
 				2C74E1A91BAF857F00675B19 /* BuildScene.cpp in Sources */,
 				2C74E1AD1BAF857F00675B19 /* main.cpp in Sources */,
@@ -359,6 +384,9 @@
 					"$(PROJECT_DIR)/siyana-renderer/lib",
 					/usr/local/lib,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OPENCL_COMPILER_VERSION = CL1.2;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -377,6 +405,9 @@
 					"$(PROJECT_DIR)/siyana-renderer/lib",
 					/usr/local/lib,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OPENCL_COMPILER_VERSION = CL1.2;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
