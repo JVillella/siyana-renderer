@@ -14,7 +14,6 @@
 		2C74E1A81BAF857F00675B19 /* BuildMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E18F1BAF857F00675B19 /* BuildMesh.cpp */; };
 		2C74E1A91BAF857F00675B19 /* BuildScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1911BAF857F00675B19 /* BuildScene.cpp */; };
 		2C74E1AA1BAF857F00675B19 /* DensityFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1941BAF857F00675B19 /* DensityFunctions.cpp */; };
-		2C74E1AB1BAF857F00675B19 /* GLUTUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E1971BAF857F00675B19 /* GLUTUtilities.cpp */; };
 		2C74E1AC1BAF857F00675B19 /* KdTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E19B1BAF857F00675B19 /* KdTree.cpp */; };
 		2C74E1AD1BAF857F00675B19 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E19D1BAF857F00675B19 /* main.cpp */; };
 		2C74E1AE1BAF857F00675B19 /* MarchingCubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C74E19E1BAF857F00675B19 /* MarchingCubes.cpp */; };
@@ -85,8 +84,6 @@
 		2C74E1941BAF857F00675B19 /* DensityFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DensityFunctions.cpp; path = src/DensityFunctions.cpp; sourceTree = "<group>"; };
 		2C74E1951BAF857F00675B19 /* DensityFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DensityFunctions.h; path = src/DensityFunctions.h; sourceTree = "<group>"; };
 		2C74E1961BAF857F00675B19 /* floatn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = floatn.h; path = src/floatn.h; sourceTree = "<group>"; };
-		2C74E1971BAF857F00675B19 /* GLUTUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLUTUtilities.cpp; path = src/GLUTUtilities.cpp; sourceTree = "<group>"; };
-		2C74E1981BAF857F00675B19 /* GLUTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLUTUtilities.h; path = src/GLUTUtilities.h; sourceTree = "<group>"; };
 		2C74E1991BAF857F00675B19 /* IntersectionFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntersectionFunctions.h; path = src/IntersectionFunctions.h; sourceTree = "<group>"; };
 		2C74E19A1BAF857F00675B19 /* intn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = intn.h; path = src/intn.h; sourceTree = "<group>"; };
 		2C74E19B1BAF857F00675B19 /* KdTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KdTree.cpp; path = src/KdTree.cpp; sourceTree = "<group>"; };
@@ -109,6 +106,8 @@
 		2CB1B7511BC1A40B00A1D0F3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		2CB1B7D81BC1F30300A1D0F3 /* meshes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = meshes; sourceTree = "<group>"; };
 		2CB1B7D91BC1F30300A1D0F3 /* textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = textures; sourceTree = "<group>"; };
+		2CFB94D81C796DB600583353 /* _GLUTUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = _GLUTUtilities.cpp; path = src/_GLUTUtilities.cpp; sourceTree = "<group>"; };
+		2CFB94D91C796DB600583353 /* _GLUTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _GLUTUtilities.h; path = src/_GLUTUtilities.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +117,6 @@
 			files = (
 				2CB1B7521BC1A40B00A1D0F3 /* CoreFoundation.framework in Frameworks */,
 				2C74E18C1BAF82A000675B19 /* OpenGL.framework in Frameworks */,
-				2C74E18A1BAF805800675B19 /* GLUT.framework in Frameworks */,
 				2C74E1881BAF800E00675B19 /* OpenCL.framework in Frameworks */,
 				2C74E1BB1BAF8E6500675B19 /* libboost_system-mt.a in Frameworks */,
 				2C74E1B91BAF8E4500675B19 /* libboost_thread-mt.a in Frameworks */,
@@ -152,6 +150,8 @@
 		2C74E15E1BAF7F1A00675B19 /* siyana-renderer */ = {
 			isa = PBXGroup;
 			children = (
+				2CFB94D81C796DB600583353 /* _GLUTUtilities.cpp */,
+				2CFB94D91C796DB600583353 /* _GLUTUtilities.h */,
 				2C74E18E1BAF857F00675B19 /* BBox.h */,
 				2C74E18F1BAF857F00675B19 /* BuildMesh.cpp */,
 				2C74E1901BAF857F00675B19 /* BuildMesh.h */,
@@ -161,8 +161,6 @@
 				2C74E1941BAF857F00675B19 /* DensityFunctions.cpp */,
 				2C74E1951BAF857F00675B19 /* DensityFunctions.h */,
 				2C74E1961BAF857F00675B19 /* floatn.h */,
-				2C74E1971BAF857F00675B19 /* GLUTUtilities.cpp */,
-				2C74E1981BAF857F00675B19 /* GLUTUtilities.h */,
 				2C74E1991BAF857F00675B19 /* IntersectionFunctions.h */,
 				2C74E19A1BAF857F00675B19 /* intn.h */,
 				2C74E19B1BAF857F00675B19 /* KdTree.cpp */,
@@ -262,7 +260,6 @@
 				2C74E1A91BAF857F00675B19 /* BuildScene.cpp in Sources */,
 				2C74E1AD1BAF857F00675B19 /* main.cpp in Sources */,
 				2C74E1AC1BAF857F00675B19 /* KdTree.cpp in Sources */,
-				2C74E1AB1BAF857F00675B19 /* GLUTUtilities.cpp in Sources */,
 				2C74E1AE1BAF857F00675B19 /* MarchingCubes.cpp in Sources */,
 				2C74E1AA1BAF857F00675B19 /* DensityFunctions.cpp in Sources */,
 			);
