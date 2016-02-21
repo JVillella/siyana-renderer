@@ -158,64 +158,37 @@ static void PrintBuildLog(void) {
 
 //------------------------------------------Procedure Wrappers
 // TODO: Handle buffer sizes of zero. Currently just crashes
+
+cl_mem allocateReadOnlyBuffer(int size) {
+    if (size <= 0) {
+        return NULL;
+    }
+    
+    cl_int error = 0;
+    cl_mem buffer = clCreateBuffer(context, CL_MEM_READ_ONLY, size, NULL, &error);
+    if(error != CL_SUCCESS) {
+        cerr<<"Error allocating read only memory"<<endl;
+        exit(error);
+    }
+    
+    return buffer;
+}
+
 static void AllocateOpenCLMem(void) {
-	printf("OpenCL: Allocating OpenCL memory\n");
-	cl_int error = 0;
-	mem_meshes = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(TriangleMesh) * num_meshes, NULL, &error);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error allocating mem_meshes memory\n");
-        exit(error);
-    }
-	mem_triangles = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(Triangle) * total_scene_tris, NULL, &error);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error allocating mem_triangles memory\n");
-        exit(error);
-    }
-	mem_vertices = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(float3) * num_vertices, NULL, &error);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error allocating mem_vertices memory\n");
-        exit(error);
-    }
-	mem_normals = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(float3) * num_vertices, NULL, &error);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error allocating mem_normals memory\n");
-        exit(error);
-    }
-	mem_uvs = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(float2) * num_vertices, NULL, &error);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error allocating mem_uvs memory\n");
-        exit(error);
-    }
-	mem_kdnodes = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(KdNode) * num_kdnodes, NULL, &error);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error allocating mem_kdnodes memory\n");
-        exit(error);
-    }
-	mem_kdsorted_tri_indices = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(int) * num_kdsorted_tri_indices, NULL, &error);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error allocating mem_kdsorted_tri_indices memory\n");
-        exit(error);
-    }
-	mem_texture_data = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(unsigned char) * num_texture_bytes, NULL, &error);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error allocating mem_texture_data memory\n");
-        exit(error);
-    }
-	mem_environment_tex = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(Texture), NULL, &error);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error allocating mem_environment_tex memory\n");
-        exit(error);
-    }
-	mem_scene_bbox = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(BBox), NULL, &error);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error allocating mem_scene_bbox memory\n");
-        exit(error);
-    }
-	mem_cam = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(Camera), NULL, &error);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error allocating mem_cam memory\n");
-        exit(error);
-    }
+    cout<<"OpenCL: Allocating memory"<<endl;
+    mem_meshes = allocateReadOnlyBuffer(sizeof(TriangleMesh) * num_meshes);
+    mem_triangles = allocateReadOnlyBuffer(sizeof(Triangle) * total_scene_tris);
+    mem_vertices = allocateReadOnlyBuffer(sizeof(float3) * num_vertices);
+    mem_normals = allocateReadOnlyBuffer(sizeof(float3) * num_vertices);
+	mem_uvs = allocateReadOnlyBuffer(sizeof(float2) * num_vertices);
+	mem_kdnodes = allocateReadOnlyBuffer(sizeof(KdNode) * num_kdnodes);
+    mem_kdsorted_tri_indices = allocateReadOnlyBuffer(sizeof(int) * num_kdsorted_tri_indices);    
+	mem_texture_data = allocateReadOnlyBuffer(sizeof(unsigned char) * num_texture_bytes);
+    mem_environment_tex = allocateReadOnlyBuffer(sizeof(Texture));
+	mem_scene_bbox = allocateReadOnlyBuffer(sizeof(BBox));
+	mem_cam = allocateReadOnlyBuffer(sizeof(Camera));
+    
+    cl_int error = 0;
     //allocate memory for rand_states
     rand_states = (unsigned int*)malloc(sizeof(unsigned int) * width * height);
     int i; //fill array w/ rand vals
@@ -226,11 +199,13 @@ static void AllocateOpenCLMem(void) {
         }
         rand_states[i] = r;
     }
+    
     mem_rand_states = clCreateBuffer(context, CL_MEM_READ_WRITE, sizeof(unsigned int) * width * height, NULL, &error);
     if(error != CL_SUCCESS) {
         printf("OpenCL: Error allocating unsigned int* mem_rand_states (array) memory\n");
         exit(error);
     }
+    
     mem_image = clCreateImage2D(context, CL_MEM_WRITE_ONLY, &image_format, width, height, 0, NULL, &error);
 	if(error != CL_SUCCESS) {
 		printf("OpenCL: Error allocating image2d_t image memory\n");
@@ -260,70 +235,30 @@ static void FreeOpenCLMem(void) {
 	}
 }
 
-void CopyLocalVarToOpenCLMem(void) {
-	cl_int error = 0;
-	printf("OpenCL: Copying local variables to OpenCL memory\n");
-    error = clEnqueueWriteBuffer(command_queue, mem_meshes, CL_TRUE, 0, sizeof(TriangleMesh) * num_meshes, meshes, 0, NULL, NULL);
+void enqueueWriteBuffer(cl_mem buffer, void* ptr, int size) {
+    cl_int error = 0;
+    error = clEnqueueWriteBuffer(command_queue, buffer, CL_TRUE, 0, size, ptr, 0, NULL, NULL);
     if(error != CL_SUCCESS) {
-        printf("OpenCL: Error copying local meshes to mem_meshes\n");
-        exit(error);
-    }
-    error = clEnqueueWriteBuffer(command_queue, mem_triangles, CL_TRUE, 0, sizeof(Triangle) * total_scene_tris, triangles, 0, NULL, NULL);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error copying local triangles to mem_triangles\n");
-        exit(error);
-    }
-    error = clEnqueueWriteBuffer(command_queue, mem_vertices, CL_TRUE, 0, sizeof(float3) * num_vertices, vertices, 0, NULL, NULL);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error copying local vertices to mem_vertices\n");
-        exit(error);
-    }
-    error = clEnqueueWriteBuffer(command_queue, mem_normals, CL_TRUE, 0, sizeof(float3) * num_vertices, normals, 0, NULL, NULL);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error copying local normals to mem_normals\n");
-        exit(error);
-    }
-    error = clEnqueueWriteBuffer(command_queue, mem_uvs, CL_TRUE, 0, sizeof(float2) * num_vertices, uvs, 0, NULL, NULL);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error copying local uvs to mem_uvs\n");
-        exit(error);
-    }
-    error = clEnqueueWriteBuffer(command_queue, mem_kdnodes, CL_TRUE, 0, sizeof(KdNode) * num_kdnodes, kdnodes, 0, NULL, NULL);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error copying local kdnodes to mem_kdnodes\n");
-        exit(error);
-    }
-    error = clEnqueueWriteBuffer(command_queue, mem_kdsorted_tri_indices, CL_TRUE, 0, sizeof(int) * num_kdsorted_tri_indices, kdsorted_tri_indices, 0, NULL, NULL);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error copying local kdsorted_tri_indices to mem_kdsorted_tri_indices\n");
-        exit(error);
-    }
-    error = clEnqueueWriteBuffer(command_queue, mem_texture_data, CL_TRUE, 0, sizeof(unsigned char) * num_texture_bytes, texture_data, 0, NULL, NULL);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error copying local texture_data to mem_texture_data\n");
-        exit(error);
-    }
-    error = clEnqueueWriteBuffer(command_queue, mem_environment_tex, CL_TRUE, 0, sizeof(Texture), &environment_tex, 0, NULL, NULL);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error copying local environment_tex to mem_environment_tex\n");
-        exit(error);
-    }
-    error = clEnqueueWriteBuffer(command_queue, mem_scene_bbox, CL_TRUE, 0, sizeof(BBox), &scene_bbox, 0, NULL, NULL);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error copying local scene_bbox to mem_scene_bbox\n");
-        exit(error);
-    }
-    error = clEnqueueWriteBuffer(command_queue, mem_cam, CL_TRUE, 0, sizeof(Camera), &cam, 0, NULL, NULL);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error copying local cam to mem_cam\n");
-        exit(error);
-    }
-    error = clEnqueueWriteBuffer(command_queue, mem_rand_states, CL_TRUE, 0, sizeof(unsigned int) * width * height, rand_states, 0, NULL, NULL);
-    if(error != CL_SUCCESS) {
-        printf("OpenCL: Error copying local int* rand_states to cl_mem mem_rand_states\n");
+        cerr<<"OpenCL: Error enqueuing write buffers"<<endl;
         exit(error);
     }
 }
+
+void CopyLocalVarToOpenCLMem(void) {
+    enqueueWriteBuffer(mem_meshes, meshes, sizeof(TriangleMesh) * num_meshes);
+    enqueueWriteBuffer(mem_triangles, triangles, sizeof(Triangle) * total_scene_tris);
+    enqueueWriteBuffer(mem_vertices, vertices, sizeof(float3) * num_vertices);
+    enqueueWriteBuffer(mem_normals, normals, sizeof(float3) * num_vertices);
+    enqueueWriteBuffer(mem_uvs, uvs, sizeof(float2) * num_vertices);
+    enqueueWriteBuffer(mem_kdnodes, kdnodes, sizeof(KdNode) * num_kdnodes);
+    enqueueWriteBuffer(mem_kdsorted_tri_indices, kdsorted_tri_indices, sizeof(int) * num_kdsorted_tri_indices);
+    enqueueWriteBuffer(mem_texture_data, texture_data, sizeof(unsigned char) * num_texture_bytes);
+    enqueueWriteBuffer(mem_environment_tex, &environment_tex, sizeof(Texture));
+    enqueueWriteBuffer(mem_scene_bbox, &scene_bbox, sizeof(BBox));
+    enqueueWriteBuffer(mem_cam, &cam, sizeof(Camera));
+    enqueueWriteBuffer(mem_rand_states, rand_states, sizeof(unsigned int) * width * height);
+}
+
 void OpenCLCleanUp(void) {
 	printf("OpenCL: Invoked OpenCL clean up\n");
 	cl_int error = 0;
@@ -490,7 +425,7 @@ void SetupOpenCL(int _width, int _height) {
         exit(error);
     }
 
-    //TODO - Uncommenting these lines causes crash
+    // TODO: Uncommenting these lines causes crash
     if(source_strs != NULL) {
         //free(source_strs);
         //source_strs = NULL;
