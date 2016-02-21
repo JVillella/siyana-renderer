@@ -145,15 +145,10 @@ static void MoveDataToGlobal() {
 
 // TODO: Eliminate the need to explicitly set the mesh emission value (it's in a C struct)
 void SetupScene() {
-//PrintTypeSizes();
-    //--------------------------------------Camera
-    //NOTE: dont change this...affects camera mouse movements and sensitivity
-    //NOTE: Camera must be the first thing setup. e.x. terrain construction depends on it
-//    float3 origin(0, 15, 0);
-//    float3 focal(8, 15, 0);
+    // PrintTypeSizes();
     
-    float3 origin(2.8, 2.5, -5);
-    float3 focal(2.8, 2.5, 2.3);
+    float3 origin(2.75, 2.75, -4.1);
+    float3 focal(2.75, 2.75, 0);
 
     CameraSetupOrthoBasis(origin, focal);
 

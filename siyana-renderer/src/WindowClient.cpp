@@ -26,11 +26,10 @@ using namespace boost;
 // TODO: Refactor into object-oriented class
 // TODO: Bring back terrain generation, and infinite loading
 namespace {
+    // TODO: OpenCLUtilities hardcodes 4, remove this
     const int kNumChannels = 4; // RGBA
     const int2 kWindowSize(800, 800);
     const int2 kWindowOrigin(100, 100);
-    
-    // TODO: Remove this, or set it differently? Only used for ray tracing.
     const int kSamplesPerPixel = 1;
     const string kWindowTitle = "Siyana Renderer " +
         SiyanaRenderer::kBuildVersion;
@@ -50,12 +49,13 @@ extern Camera cam;
 
 // TODO: Get rid of this enum
 enum class CameraDirection {
-    Forward, Backward, Up, Down, Left, Right
+    Forward, Backward, Up, Down, Left, Right, Undefined
 };
 
 void allocateImageBuffer(int width, int height, int numChannels);
 void freeImageBuffer();
-bool reachedGenerateTerrainThreshold();
+void resetImageBuffer(GLFWwindow* window);
+void resetRender(GLFWwindow* window);
 
 // TODO: Move this functionality into the Camera class
 void moveCamera(const CameraDirection& direction, float displacement) {
@@ -89,6 +89,8 @@ void moveCamera(const CameraDirection& direction, float displacement) {
 
     cam.eye   += disp;
     cam.focal += disp;
+    
+    CameraUpdateOrthoBasis();
 }
 
 // TODO: Move this functionality into the Camera class
@@ -96,6 +98,8 @@ void rotateCamera(float theta) {
     float3 axisZ = (cam.focal - cam.eye);
     cam.focal.z = cam.eye.z + sin(theta) * axisZ.x + cos(theta) * axisZ.z;
     cam.focal.x = cam.eye.x + cos(theta) * axisZ.x - sin(theta) * axisZ.z;
+    
+    CameraUpdateOrthoBasis();
 }
 
 void errorCallback(int error, const char* description) {
@@ -164,26 +168,18 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
             break;
     
         default:
+            direction = CameraDirection::Undefined;
             break;
     }
 
-    moveCamera(direction, kCameraDisplacementStep);
-    
-//    if (reachedGenerateTerrainThreshold()) {
-//        cout<<"Generating more terrain"<<endl;
-//        if(!geometry_updating) { //if not ready don't generate more terrain
-//            terrain_thread = thread(StartSceneUpdate);
-//        } else {
-//            cout<<"Attempted to generate more terrain but system was not ready. Will try again."<<endl;
-//        }
-//    }
-    
-    // TODO: Find a `glutPostRedisplay()` for GLFW3
+    if (direction != CameraDirection::Undefined) {
+        moveCamera(direction, kCameraDisplacementStep);
+        resetRender(window);
+    }
 }
 
 void cursorPosCallback(GLFWwindow* window, double xPos, double yPos) {
     // Mouse-camera motion algorithm influenced by Ronny AndrÈ Reierstad
-    
     int width, height;
     glfwGetFramebufferSize(window, &width, &height);
     
@@ -210,7 +206,7 @@ void cursorPosCallback(GLFWwindow* window, double xPos, double yPos) {
     }
     
     rotateCamera(yAngle);
-    // TODO: Find a `glutPostRedisplay()` for GLFW3
+    resetRender(window);
 }
 
 // TODO: Refactor this method
@@ -248,7 +244,8 @@ void drawText(string text, int x, int y) {
     // TODO: Implement me
 }
 
-void render(int width, int height) {
+void renderImage(int width, int height) {
+    cout<<"Rendering..."<<endl;
     OpenCLRender();
     drawBuffer(width, height, pixels);
     // TODO: Find a `glutPostRedisplay()` for GLFW3
@@ -265,6 +262,19 @@ void freeImageBuffer() {
         free(pixels);
         pixels = NULL;
     }
+}
+
+void resetImageBuffer(GLFWwindow* window) {
+    int width, height;
+    glfwGetFramebufferSize(window, &width, &height);
+    
+    freeImageBuffer();
+    allocateImageBuffer(width, height, kSamplesPerPixel);
+}
+
+void resetRender(GLFWwindow* window) {
+//    resetImageBuffer(window);
+    OpenCLResetRender();
 }
 
 bool reachedGenerateTerrainThreshold() {
@@ -309,13 +319,6 @@ void startGui(GLFWwindow* window) {
         
         int width, height;
         glfwGetFramebufferSize(window, &width, &height);
-//        float ratio = width / (float)height;
-        
-//        glViewport(0, 0, width, height);
-//        glClear(GL_COLOR_BUFFER_BIT);
-//        
-//        glLoadIdentity(); // reset matrix
-//        glOrtho(-ratio, ratio, -1.f, 1.f, 1.f, -1.f);
         
         glViewport(0, 0, width, height);
         glLoadIdentity();
@@ -323,7 +326,7 @@ void startGui(GLFWwindow* window) {
         
         glRasterPos2i(0, 0);
         glClear(GL_COLOR_BUFFER_BIT);
-        render(width, height);
+        renderImage(width, height);
         
         // TODO: Move on-screen drawaing to method
         drawText("FPS: " + to_string(fps), 10, 10);
@@ -336,7 +339,7 @@ void startGui(GLFWwindow* window) {
         drawText("Focal: ???", 10, 60);
         
         glfwSwapBuffers(window);
-        glfwWaitEvents();
+        glfwPollEvents();
         
         elapsedTime = glfwGetTime();
     }

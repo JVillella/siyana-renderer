@@ -2,7 +2,7 @@
 #define CAMERA_H_INCLUDED
 
 // TODO: Allow this to be adjusted
-#define CAMERA_VIEW_DIST 800.f
+#define CAMERA_VIEW_DIST 1200.f
 
 extern Camera cam;
 
