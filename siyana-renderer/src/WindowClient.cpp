@@ -43,7 +43,7 @@ namespace {
 }
 
 // Oh my god, why did I ever do so such a thing.
-int spp = kSamplesPerPixel;
+int spp = 0;
 float* pixels = NULL;
 extern Camera cam;
 

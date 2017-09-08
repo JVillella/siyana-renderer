@@ -442,8 +442,9 @@ void UpdateLocalPixels(void) {
 	cl_int error = 0;
     const size_t origin[3] = {0, 0, 0};
     const size_t region[3] = {static_cast<size_t>(width), static_cast<size_t>(height), 1};
-        float* old_pixels = (float*)malloc(width * height * 4 * sizeof(float));
-        memcpy(old_pixels, pixels, width * height * 4 * sizeof(float));
+    float* old_pixels = (float*)malloc(width * height * 4 * sizeof(float));
+    memcpy(old_pixels, pixels, width * height * 4 * sizeof(float));
+    
     //local pixel array should already be allocated
     error = clEnqueueReadImage(command_queue, mem_image, CL_TRUE, origin,
         region, 0, 0, pixels, 0, NULL, NULL);
